@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<extension>
+	<id>8ef74d20-6c9d-4a7f-a450-32d08ee0c6b7</id>
+	<name>SimilarVibes</name>
+	<module>Plugins::SimilarVibes::Plugin</module>
+	<version>1.0.0</version>
+	<description>Find local music related to the currently playing artist.</description>
+	<creator>SimilarVibes contributors</creator>
+	<optionsURL>plugins/DStM-SimilarVibes/settings/basic.html</optionsURL>
+	<type>2</type>
+	<targetApplication>
+		<id>Logitech Media Server</id>
+		<minVersion>8.0</minVersion>
+		<maxVersion>*</maxVersion>
+	</targetApplication>
+</extension>

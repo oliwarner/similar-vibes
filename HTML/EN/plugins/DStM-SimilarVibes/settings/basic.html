@@ -1,0 +1,43 @@
+[% PROCESS settings/header.html %]
+
+<h3>SimilarVibes</h3>
+<form method="post" action="[% webroot %][% path %]">
+	<input type="hidden" name="player" value="[% player | html %]">
+	<input type="hidden" name="saveSettings" value="1">
+	<table class="settingsTable" cellspacing="0">
+		<tr>
+			<td class="settingName">Music data source</td>
+			<td class="settingValue">
+				<select name="pref_api_provider">
+					<option value="lastfm" [% IF prefs.api_provider == 'lastfm' %]selected[% END %]>Last.fm</option>
+					<option value="listenbrainz" [% IF prefs.api_provider == 'listenbrainz' %]selected[% END %]>ListenBrainz</option>
+				</select>
+			</td>
+		</tr>
+		<tr>
+			<td class="settingName">Last.fm API key</td>
+			<td class="settingValue"><input type="password" name="pref_lastfm_api_key" value="[% prefs.lastfm_api_key | html %]" size="48"></td>
+		</tr>
+		<tr>
+			<td class="settingName">ListenBrainz user token</td>
+			<td class="settingValue"><input type="password" name="pref_listenbrainz_token" value="[% prefs.listenbrainz_token | html %]" size="48"></td>
+		</tr>
+		<tr>
+			<td class="settingName">Cache expiry (days)</td>
+			<td class="settingValue"><input type="number" min="1" max="365" name="pref_cache_expiry_days" value="[% prefs.cache_expiry_days | html %]"></td>
+		</tr>
+		<tr>
+			<td class="settingName">Maximum similar artists</td>
+			<td class="settingValue"><input type="number" min="1" max="20" name="pref_max_similar_artists" value="[% prefs.max_similar_artists | html %]"></td>
+		</tr>
+		<tr>
+			<td class="settingName">Exclude tracks played within (hours)</td>
+			<td class="settingValue"><input type="number" min="0" max="720" name="pref_recently_played_hours" value="[% prefs.recently_played_hours | html %]"></td>
+		</tr>
+	</table>
+	<div class="buttons"><input type="submit" value="[% 'SAVE' | string %]"></div>
+</form>
+
+<p>ListenBrainz top recordings require a MusicBrainz artist ID. Similar-artist matching uses local genre matches when ListenBrainz is selected.</p>
+
+[% PROCESS settings/footer.html %]
